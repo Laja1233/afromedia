@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afromedia Plc — Nigeria's Leader in Out-of-Home Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #FF6B00;
+    --orange-dark: #CC5500;
+    --orange-light: #FF8C3A;
+    --black: #1A1A1A;
+    --dark: #2C2C2C;
+    --gray: #6B6B6B;
+    --light: #EBEBEB;
+    --off-white: #F5F5F5;
+    --green-light: #E8F4E3;
+    --white: #FFFFFF;
+    --r-card: 16px;
+    --r-btn: 8px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--light);
+    transition: all 0.3s var(--ease);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 32px; height: 32px;
+    position: relative;
+  }
+
+  .logo-icon svg { width: 100%; height: 100%; }
+
+  .logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.06em;
+    color: var(--black);
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    color: var(--dark); transition: color 0.2s;
+    position: relative; padding-bottom: 2px;
+  }
+
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: var(--orange);
+    transition: width 0.25s var(--ease);
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+
+  .btn-ghost {
+    font-size: 14px; font-weight: 500; color: var(--dark);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--orange); }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--orange); color: var(--white);
+    border: none; border-radius: var(--r-btn);
+    padding: 10px 22px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--black); border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh; min-height: 700px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 48px 64px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a2a1a 0%, #2a1a0a 40%, #1a1a2a 100%);
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 60% at 70% 40%, rgba(255,107,0,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 30% 60%, rgba(0,80,20,0.2) 0%, transparent 70%);
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  }
+
+  /* Animated orbs */
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero-orb-1 {
+    width: 400px; height: 400px;
+    background: var(--orange);
+    top: 10%; right: 15%;
+    animation-delay: 0s;
+  }
+
+  .hero-orb-2 {
+    width: 300px; height: 300px;
+    background: #00A040;
+    bottom: 20%; left: 10%;
+    animation-delay: -3s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-tag {
+    position: absolute; top: 100px; right: 48px;
+    z-index: 2;
+  }
+
+  .tag-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,107,0,0.15);
+    border: 1px solid rgba(255,107,0,0.4);
+    color: var(--orange-light);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+  }
+
+  .tag-pill::before { content: '■'; font-size: 8px; }
+
+  .hero-tag-desc {
+    margin-top: 12px; max-width: 240px;
+    font-size: 13px; color: rgba(255,255,255,0.65);
+    line-height: 1.6; text-align: right;
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 120px);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .hero-headline span { color: var(--orange); }
+
+  .hero-sub {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    max-width: 280px; line-height: 1.6; margin-bottom: 28px;
+  }
+
+  .hero-cta { display: flex; align-items: center; gap: 16px; }
+
+  .btn-hero {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: var(--white);
+    border: none; border-radius: var(--r-btn);
+    padding: 14px 28px; font-size: 15px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.25s var(--ease);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-hero:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,0,0.35); }
+
+  .hero-stat-card {
+    position: absolute; bottom: 64px; right: 48px; z-index: 2;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--r-card);
+    padding: 20px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .stat-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 12px var(--orange);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 6px var(--orange); }
+    50% { box-shadow: 0 0 20px var(--orange); }
+  }
+
+  .stat-text { color: var(--white); }
+  .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1; }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+  /* ── SECTION 2 — VALUE PROP ── */
+  #value {
+    padding: 120px 48px;
+    background: var(--white);
+    position: relative; overflow: hidden;
+  }
+
+  .value-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .circle-stage {
+    position: relative; width: 480px; height: 480px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .circle-svg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+
+  .circle-headline {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 280px;
+  }
+
+  .circle-headline h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.15; color: var(--black);
+  }
+
+  .circle-headline h2 em { color: var(--orange); font-style: italic; }
+
+  .profile-card {
+    position: absolute; z-index: 3;
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: var(--r-card);
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  .profile-card-left { left: -60px; top: 120px; transform: rotate(-3deg); }
+  .profile-card-right { right: -60px; top: 200px; transform: rotate(3deg); }
+
+  .profile-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--light); overflow: hidden; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .profile-info { }
+  .profile-name { font-size: 13px; font-weight: 600; color: var(--black); }
+  .profile-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 4px; background: rgba(255,107,0,0.1);
+    color: var(--orange); border-radius: 100px;
+    padding: 2px 8px; font-size: 11px; font-weight: 600;
+  }
+
+  .value-cta { margin-top: 40px; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid var(--orange); color: var(--orange);
+    background: transparent; border-radius: var(--r-btn);
+    padding: 12px 24px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.25s var(--ease);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-1px); }
+
+  /* Sparklines */
+  .sparkline {
+    position: absolute; opacity: 0.12;
+  }
+
+  /* ── SECTION 3 — SERVICES ── */
+  #services {
+    padding: 100px 48px;
+    background: var(--off-white);
+  }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before { content: '■'; font-size: 8px; }
+
+  .section-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1; color: var(--black);
+    max-width: 520px; margin-bottom: 48px;
+  }
+
+  .cards-wrapper { position: relative; }
+
+  .cards-scroll {
+    display: flex; gap: 24px; overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; padding-bottom: 8px;
+    cursor: grab;
+  }
+
+  .cards-scroll:active { cursor: grabbing; }
+  .cards-scroll::-webkit-scrollbar { display: none; }
+
+  .service-card {
+    flex: 0 0 300px; scroll-snap-align: start;
+    background: var(--white); border-radius: var(--r-card);
+    overflow: hidden;
+    border: 1px solid var(--light);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+    border-color: var(--orange);
+  }
+
+  .card-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    background: linear-gradient(135deg, var(--light) 0%, #d0d0d0 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .card-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+  }
+
+  /* Gradient overlays per card */
+  .card-1 .card-img { background: linear-gradient(135deg, #1a3a2a, #2a5a3a); }
+  .card-2 .card-img { background: linear-gradient(135deg, #2a1a3a, #3a2a5a); }
+  .card-3 .card-img { background: linear-gradient(135deg, #3a2a1a, #5a3a2a); }
+  .card-4 .card-img { background: linear-gradient(135deg, #1a2a3a, #2a3a5a); }
+
+  .card-tags {
+    position: absolute; top: 12px; left: 12px;
+    display: flex; gap: 6px;
+  }
+
+  .badge {
+    padding: 4px 10px; border-radius: 100px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .badge-orange { background: var(--orange); color: var(--white); }
+  .badge-gray { background: rgba(255,255,255,0.2); color: var(--white); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); }
+
+  .card-body { padding: 20px; }
+  .card-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--black); margin-bottom: 8px; }
+  .card-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
+
+  .btn-card {
+    display: block; width: 100%; text-align: center;
+    background: var(--black); color: var(--white);
+    border: none; border-radius: var(--r-btn);
+    padding: 11px; font-size: 13px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-card:hover { background: var(--orange); }
+
+  .card-price { font-size: 12px; color: var(--gray); margin-top: 8px; text-align: center; }
+
+  .scroll-arrows {
+    display: flex; gap: 8px; margin-top: 24px; justify-content: flex-end;
+  }
+
+  .arrow-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1.5px solid var(--light);
+    background: var(--white); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; transition: all 0.2s;
+    color: var(--dark);
+  }
+
+  .arrow-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ── SECTION 4 — RESULTS ── */
+  #results {
+    padding: 100px 48px;
+    background: var(--green-light);
+  }
+
+  .results-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center;
+  }
+
+  .chart-card {
+    background: var(--white); border-radius: var(--r-card);
+    padding: 32px; box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  .chart-label-row {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 24px;
+  }
+
+  .chart-pills { display: flex; gap: 8px; }
+  .chart-pill {
+    padding: 4px 12px; border-radius: 100px;
+    background: rgba(255,107,0,0.1); color: var(--orange);
+    font-size: 11px; font-weight: 700;
+    border: 1px solid rgba(255,107,0,0.2);
+  }
+
+  .chart-area {
+    position: relative; height: 200px;
+    display: flex; align-items: flex-end; gap: 6px;
+  }
+
+  .bar-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 4px; height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar {
+    width: 100%; border-radius: 4px 4px 0 0;
+    background: var(--light);
+    transform-origin: bottom;
+    transition: height 1s var(--ease);
+  }
+
+  .bar.peak { background: var(--orange); }
+  .bar-week { font-size: 9px; color: var(--gray); }
+
+  .chart-phase-label {
+    position: absolute; top: 0; right: 0;
+    background: var(--orange); color: var(--white);
+    padding: 4px 10px; border-radius: 6px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .results-right { }
+
+  .results-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1; color: var(--black);
+    margin-bottom: 24px;
+  }
+
+  .btn-dark {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--black); color: var(--white);
+    border: none; border-radius: var(--r-btn);
+    padding: 13px 24px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.25s var(--ease);
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 32px;
+  }
+
+  .btn-dark:hover { background: var(--orange); transform: translateY(-1px); }
+
+  .result-divider { height: 1px; background: var(--light); margin-bottom: 28px; }
+
+  .big-stat {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+  }
+
+  .big-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 8vw, 96px);
+    line-height: 1; color: var(--black);
+  }
+
+  .big-stat-arrow {
+    font-size: 32px; color: var(--orange); font-weight: 700;
+  }
+
+  .big-stat-label { font-size: 14px; color: var(--gray); }
+
+  /* ── SECTION 5 — PROOF ── */
+  #proof {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .proof-inner { max-width: 1200px; margin: 0 auto; }
+
+  .proof-stats {
+    display: flex; gap: 64px; margin-bottom: 64px; flex-wrap: wrap;
+  }
+
+  .proof-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 7vw, 88px);
+    line-height: 1; color: var(--black);
+    counter-reset: none;
+  }
+
+  .proof-stat-label { font-size: 14px; color: var(--gray); margin-top: 4px; }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    gap: 0; align-items: stretch;
+    border-radius: var(--r-card); overflow: hidden;
+    height: 360px;
+  }
+
+  .bento-img {
+    overflow: hidden; position: relative;
+  }
+
+  .bento-img-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px;
+    transition: transform 0.6s var(--ease);
+  }
+
+  .bento-img:hover .bento-img-inner { transform: scale(1.04); }
+
+  .bento-img-1 { background: linear-gradient(160deg, #1a2a3a, #2a4a3a); }
+  .bento-img-2 { background: linear-gradient(160deg, #3a2a1a, #5a3a2a); }
+  .bento-img-3 { background: linear-gradient(160deg, #2a1a3a, #4a2a5a); }
+
+  .bento-divider { background: var(--light); }
+
+  .trust-bar {
+    display: flex; align-items: center; gap: 48px;
+    margin-top: 56px; flex-wrap: wrap;
+    padding-top: 40px; border-top: 1px solid var(--light);
+  }
+
+  .trust-label { font-size: 12px; color: var(--gray); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .trust-logo {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--light);
+    font-weight: 600;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .trust-logo:hover { opacity: 1; color: var(--orange); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); padding: 64px 48px 32px;
+    border-top: 3px solid var(--orange);
+  }
+
+  .footer-top {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 48px;
+  }
+
+  .footer-brand {}
+  .footer-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; margin-bottom: 14px;
+  }
+
+  .footer-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.06em; color: var(--white);
+  }
+
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 220px; }
+
+  .footer-nav h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+  }
+
+  .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .footer-nav a {
+    text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: var(--orange); }
+
+  .footer-social { }
+  .footer-social h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+  }
+
+  .social-icons { display: flex; gap: 10px; }
+
+  .social-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.55); font-size: 14px;
+    text-decoration: none; transition: all 0.2s;
+  }
+
+  .social-icon:hover { border-color: var(--orange); color: var(--orange); background: rgba(255,107,0,0.1); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-size: 12px; color: rgba(255,255,255,0.25);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .testi-card {
+    background: var(--off-white); border-radius: var(--r-card);
+    padding: 28px; border: 1px solid var(--light);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .testi-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+
+  .testi-card p {
+    font-size: 14px; color: var(--dark); line-height: 1.7;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .testi-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── MOBILE DRAWER ── */
+  .mobile-drawer {
+    position: fixed; top: 68px; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--light);
+    padding: 24px 32px; z-index: 99;
+    transform: translateY(-100%); opacity: 0;
+    transition: all 0.3s var(--ease);
+    pointer-events: none;
+  }
+
+  .mobile-drawer.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+
+  .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
+  .mobile-drawer a { text-decoration: none; font-size: 16px; font-weight: 500; color: var(--dark); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .results-inner { grid-template-columns: 1fr; }
+    .circle-stage { width: 360px; height: 360px; }
+    .profile-card-left { left: -20px; }
+    .profile-card-right { right: -20px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links, .nav-right .btn-ghost { display: none; }
+    .hamburger { display: flex; }
+
+    #hero { padding: 0 24px 48px; }
+    .hero-tag { right: 24px; top: 88px; }
+    .hero-stat-card { display: none; }
+
+    #value, #services, #results, #proof { padding: 72px 24px; }
+
+    .circle-stage { width: 280px; height: 280px; }
+    .profile-card-left, .profile-card-right { position: relative; left: auto; right: auto; top: auto; transform: none; }
+
+    .bento-grid { grid-template-columns: 1fr; grid-template-rows: repeat(3, 200px); height: auto; }
+    .bento-divider { display: none; }
+
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .proof-stats { gap: 32px; }
+    footer { padding: 48px 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="4,28 16,4 28,28" fill="#FF6B00"/>
+        <polygon points="4,28 16,14 28,28" fill="#1A1A1A"/>
+        <line x1="2" y1="28" x2="30" y2="28" stroke="#FF6B00" stroke-width="2"/>
+      </svg>
+    </div>
+    <span class="logo-text">Afromedia</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Products</a></li>
+    <li><a href="#results">Corporate Info</a></li>
+    <li><a href="#proof">Resources</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="#" class="btn-ghost">Sign In</a>
+    <a href="#" class="btn-primary">Get Started →</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Products</a></li>
+    <li><a href="#results">Corporate Info</a></li>
+    <li><a href="#proof">Resources</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <a href="mailto:info@afromediaplc.com" class="btn-primary" style="width:100%;justify-content:center;"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+
+  <div class="hero-tag">
+    <div class="tag-pill">Out-of-Home Media</div>
+    <p class="hero-tag-desc">Nigeria's leading outdoor advertising company, connecting brands to audiences since 1959.</p>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-headline">Africa's<br><span>Boldest</span><br>Billboard</h1>
+    <p class="hero-sub">We put your brand where Nigeria sees it — roadside, airport, destination and beyond.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn-hero"><i class="fa-solid fa-arrow-right"></i> Get Started</a>
+      <a href="#services" class="btn-ghost" style="color:rgba(255,255,255,0.6);font-size:14px;">See our products ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-stat-card">
+    <div class="stat-dot"></div>
+    <div class="stat-text">
+      <div class="stat-number">65+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROP -->
+<section id="value">
+  <div class="value-inner">
+
+    <!-- Sparklines -->
+    <svg class="sparkline" style="top:80px;left:60px;width:120px;height:40px;" viewBox="0 0 120 40">
+      <polyline points="0,35 20,20 40,28 60,10 80,18 100,5 120,12" fill="none" stroke="#FF6B00" stroke-width="1.5"/>
+    </svg>
+    <svg class="sparkline" style="bottom:80px;right:60px;width:100px;height:35px;" viewBox="0 0 100 35">
+      <polyline points="0,30 25,15 50,22 75,8 100,16" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+    </svg>
+
+    <div class="circle-stage reveal">
+      <svg class="circle-svg" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="240" cy="240" r="200" stroke="#EBEBEB" stroke-width="1"/>
+        <circle cx="240" cy="240" r="150" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 8"/>
+        <circle cx="240" cy="240" r="100" stroke="rgba(255,107,0,0.15)" stroke-width="1"/>
+        <!-- Small dots on outer circle -->
+        <circle cx="240" cy="40" r="4" fill="#FF6B00"/>
+        <circle cx="440" cy="240" r="4" fill="#FF6B00"/>
+        <circle cx="240" cy="440" r="4" fill="#EBEBEB"/>
+        <circle cx="40" cy="240" r="4" fill="#EBEBEB"/>
+      </svg>
+
+      <div class="circle-headline">
+        <h2>Designed around your brand, built for audiences that <em>remember.</em></h2>
+      </div>
+
+      <div class="profile-card profile-card-left reveal reveal-delay-1">
+        <div class="profile-avatar"><i class="fa-solid fa-building" style="color:var(--orange);font-size:20px;"></i></div>
+        <div class="profile-info">
+          <div class="profile-name">Est. 1959</div>
+          <div class="profile-badge"><i class="fa-solid fa-check"></i> NSE Listed</div>
+        </div>
+      </div>
+
+      <div class="profile-card profile-card-right reveal reveal-delay-2">
+        <div class="profile-avatar"><i class="fa-solid fa-map-location-dot" style="color:var(--orange);font-size:20px;"></i></div>
+        <div class="profile-info">
+          <div class="profile-name">Nationwide</div>
+          <div class="profile-badge"><i class="fa-solid fa-arrow-trend-up"></i> Pan-Nigeria</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="value-cta reveal reveal-delay-3">
+      <a href="#" class="btn-outline">See if you qualify →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label reveal">Our Products</div>
+  <h2 class="section-headline reveal reveal-delay-1">A media solution<br>for every touchpoint.</h2>
+
+  <div class="cards-wrapper">
+    <div class="cards-scroll" id="cardsScroll">
+
+      <div class="service-card card-1 reveal">
+        <div class="card-img">
+          <div class="card-img-placeholder"><i class="fa-solid fa-road fa-2x" style="color:rgba(255,255,255,0.85);"></i></div>
+          <div class="card-tags">
+            <span class="badge badge-orange">Popular</span>
+            <span class="badge badge-gray">Available</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Roadside</div>
+          <p class="card-desc">High-impact billboards and banners positioned along Nigeria's busiest roads and highways for maximum brand visibility.</p>
+          <a href="#" class="btn-card"><i class="fa-solid fa-arrow-right"></i> Learn More</a>
+          <div class="card-price">Custom pricing available</div>
+        </div>
+      </div>
+
+      <div class="service-card card-2 reveal reveal-delay-1">
+        <div class="card-img">
+          <div class="card-img-placeholder"><i class="fa-solid fa-plane-departure fa-2x" style="color:rgba(255,255,255,0.85);"></i></div>
+          <div class="card-tags">
+            <span class="badge badge-orange">Featured</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Airport</div>
+          <p class="card-desc">Premium advertising placements inside Nigeria's international and domestic airports — reaching high-value, frequent-flying audiences.</p>
+          <a href="#" class="btn-card"><i class="fa-solid fa-arrow-right"></i> Learn More</a>
+          <div class="card-price">Custom pricing available</div>
+        </div>
+      </div>
+
+      <div class="service-card card-3 reveal reveal-delay-2">
+        <div class="card-img">
+          <div class="card-img-placeholder"><i class="fa-solid fa-location-dot fa-2x" style="color:rgba(255,255,255,0.85);"></i></div>
+          <div class="card-tags">
+            <span class="badge badge-gray">Available</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Destination</div>
+          <p class="card-desc">Strategic placements at key destinations — malls, event centres, and commercial hubs where your audience spends their time.</p>
+          <a href="#" class="btn-card"><i class="fa-solid fa-arrow-right"></i> Learn More</a>
+          <div class="card-price">Custom pricing available</div>
+        </div>
+      </div>
+
+      <div class="service-card card-4 reveal reveal-delay-3">
+        <div class="card-img">
+          <div class="card-img-placeholder"><i class="fa-solid fa-vr-cardboard fa-2x" style="color:rgba(255,255,255,0.85);"></i></div>
+          <div class="card-tags">
+            <span class="badge badge-orange">New</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Virtual Reality</div>
+          <p class="card-desc">Cutting-edge immersive VR advertising experiences that put your brand in the hands and eyes of tomorrow's consumers.</p>
+          <a href="#" class="btn-card"><i class="fa-solid fa-arrow-right"></i> Learn More</a>
+          <div class="card-price">Custom pricing available</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="scroll-arrows">
+      <button class="arrow-btn" onclick="scrollCards(-1)">←</button>
+      <button class="arrow-btn" onclick="scrollCards(1)">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-inner">
+
+    <div class="chart-card reveal">
+      <div class="chart-label-row">
+        <div class="section-label" style="margin:0;">Calculator</div>
+        <div class="chart-pills">
+          <span class="chart-pill">30 Days</span>
+          <span class="chart-pill">90 Days</span>
+        </div>
+      </div>
+      <div class="chart-area" id="chartArea">
+        <span class="chart-phase-label">PEAK RESULTS PHASE</span>
+      </div>
+    </div>
+
+    <div class="results-right reveal reveal-delay-2">
+      <h2 class="results-headline">Visible ROI.<br>Proven results.</h2>
+      <a href="mailto:info@afromediaplc.com" class="btn-dark"><i class="fa-solid fa-envelope"></i> Request a Media Plan</a>
+      <div class="result-divider"></div>
+      <div class="big-stat">
+        <div class="big-stat-num" id="bigStat">0%</div>
+        <div class="big-stat-arrow" style="color:var(--orange)"><i class="fa-solid fa-arrow-trend-up"></i></div>
+      </div>
+      <div class="big-stat-label">Average brand recall improvement with OOH campaigns</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="proof-inner">
+    <div class="section-label reveal">Who We Are</div>
+    <h2 class="section-headline reveal reveal-delay-1">Nigeria's leader in<br>out-of-home media.</h2>
+
+    <div class="proof-stats">
+      <div class="reveal">
+        <div class="proof-stat-num" data-target="65" data-suffix="+">0+</div>
+        <div class="proof-stat-label">Years in the industry</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="proof-stat-num" data-target="1959" data-suffix="">0</div>
+        <div class="proof-stat-label">Founded — a legacy brand</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="proof-stat-num" data-target="100" data-suffix="%">0%</div>
+        <div class="proof-stat-label">Nigerian-owned since 1974</div>
+      </div>
+    </div>
+
+    <div class="bento-grid reveal">
+      <div class="bento-img bento-img-1">
+        <div class="bento-img-inner"><i class="fa-solid fa-signs-post fa-3x" style="color:rgba(255,255,255,0.7);"></i></div>
+      </div>
+      <div class="bento-divider"></div>
+      <div class="bento-img bento-img-2">
+        <div class="bento-img-inner"><i class="fa-solid fa-plane fa-3x" style="color:rgba(255,255,255,0.7);"></i></div>
+      </div>
+      <div class="bento-divider"></div>
+      <div class="bento-img bento-img-3">
+        <div class="bento-img-inner"><i class="fa-solid fa-city fa-3x" style="color:rgba(255,255,255,0.7);"></i></div>
+      </div>
+    </div>
+
+    <!-- Customer Testimonials -->
+    <div class="testimonials reveal" style="margin-top:56px;">
+      <div class="section-label" style="margin-bottom:24px;">What Clients Say</div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <i class="fa-solid fa-quote-left" style="color:var(--orange);font-size:20px;margin-bottom:12px;display:block;"></i>
+          <p>"Afromedia Plc has provided us with world class services and assisted heavily in business growth."</p>
+        </div>
+        <div class="testi-card">
+          <i class="fa-solid fa-quote-left" style="color:var(--orange);font-size:20px;margin-bottom:12px;display:block;"></i>
+          <p>"Out of home media works! There is a visible return on investment as we have discovered."</p>
+        </div>
+        <div class="testi-card">
+          <i class="fa-solid fa-quote-left" style="color:var(--orange);font-size:20px;margin-bottom:12px;display:block;"></i>
+          <p>"If I were to sum up Afromedia in one word, it would be <strong>reliability.</strong>"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-bar reveal">
+      <span class="trust-label">Our Values</span>
+      <span class="trust-logo"><i class="fa-solid fa-handshake"></i> Collaboration</span>
+      <span class="trust-logo"><i class="fa-solid fa-shield-halved"></i> Integrity</span>
+      <span class="trust-logo"><i class="fa-solid fa-star"></i> Excellence</span>
+      <span class="trust-logo"><i class="fa-solid fa-earth-africa"></i> Society</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="4,28 16,4 28,28" fill="#FF6B00"/>
+            <polygon points="4,28 16,14 28,28" fill="#2C2C2C"/>
+            <line x1="2" y1="28" x2="30" y2="28" stroke="#FF6B00" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="footer-logo-text">Afromedia</span>
+      </a>
+      <p class="footer-tagline">Nigeria's leading out-of-home media company. Connecting brands to audiences since 1959.</p>
+      <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8;">
+        <i class="fa-solid fa-location-dot" style="color:var(--orange);margin-right:6px;"></i>39 Ladipo Bateye Street, GRA, Ikeja.<br>
+        <i class="fa-solid fa-phone" style="color:var(--orange);margin-right:6px;"></i>0700AFROMEDIA / +234-1-8980017<br>
+        <i class="fa-solid fa-envelope" style="color:var(--orange);margin-right:6px;"></i>info@afromediaplc.com
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#"><i class="fa-solid fa-house fa-fw" style="margin-right:8px;"></i>Home</a></li>
+        <li><a href="#services"><i class="fa-solid fa-signs-post fa-fw" style="margin-right:8px;"></i>Products</a></li>
+        <li><a href="#results"><i class="fa-solid fa-building fa-fw" style="margin-right:8px;"></i>Corporate Info</a></li>
+        <li><a href="#proof"><i class="fa-solid fa-book fa-fw" style="margin-right:8px;"></i>Resources</a></li>
+        <li><a href="#"><i class="fa-solid fa-briefcase fa-fw" style="margin-right:8px;"></i>Careers</a></li>
+        <li><a href="#"><i class="fa-solid fa-phone fa-fw" style="margin-right:8px;"></i>Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Connect</h4>
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© Afromedia Plc 2026. All rights reserved. NSE Listed.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Community</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileDrawer').classList.toggle('open');
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,0.08)' : 'none';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        // Trigger stat counters
+        const num = entry.target.querySelector('[data-target]') || 
+                    (entry.target.dataset.target ? entry.target : null);
+        if (num) animateStat(num);
+
+        entry.target.querySelectorAll('[data-target]').forEach(el => animateStat(el));
+
+        // Trigger chart bars
+        if (entry.target.id === 'chartArea' || entry.target.closest('#results')) {
+          setTimeout(buildChart, 300);
+        }
+
+        // Big stat
+        if (entry.target.closest('#results')) {
+          setTimeout(() => animateBigStat(), 600);
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stat counters
+  function animateStat(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    if (!target || el.dataset.animated) return;
+    el.dataset.animated = true;
+    let current = 0;
+    const duration = 1500;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  // Big stat animation
+  let bigStatDone = false;
+  function animateBigStat() {
+    if (bigStatDone) return;
+    bigStatDone = true;
+    const el = document.getElementById('bigStat');
+    let current = 0;
+    const target = 16;
+    const timer = setInterval(() => {
+      current = Math.min(current + 0.3, target);
+      el.textContent = current.toFixed(1) + '%';
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  // Build chart
+  let chartBuilt = false;
+  function buildChart() {
+    if (chartBuilt) return;
+    chartBuilt = true;
+    const area = document.getElementById('chartArea');
+    const existingBars = area.querySelectorAll('.bar-wrap');
+    if (existingBars.length > 0) return;
+
+    const data = [15, 25, 35, 45, 60, 75, 90, 100, 85, 70, 55, 40];
+    const maxVal = Math.max(...data);
+    const peakIdx = data.indexOf(maxVal);
+    const label = area.querySelector('.chart-phase-label');
+
+    data.forEach((val, i) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'bar-wrap';
+
+      const bar = document.createElement('div');
+      bar.className = 'bar' + (i === peakIdx ? ' peak' : '');
+      bar.style.height = '0px';
+
+      const week = document.createElement('div');
+      week.className = 'bar-week';
+      week.textContent = 'W' + (i + 1);
+
+      wrap.appendChild(bar);
+      wrap.appendChild(week);
+      area.insertBefore(wrap, label);
+
+      setTimeout(() => {
+        bar.style.height = ((val / maxVal) * 160) + 'px';
+      }, i * 60);
+    });
+  }
+
+  // Card drag scroll
+  const scroll = document.getElementById('cardsScroll');
+  let isDown = false, startX, scrollLeft;
+
+  scroll.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - scroll.offsetLeft;
+    scrollLeft = scroll.scrollLeft;
+  });
+
+  scroll.addEventListener('mouseleave', () => isDown = false);
+  scroll.addEventListener('mouseup', () => isDown = false);
+  scroll.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scroll.offsetLeft;
+    scroll.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+
+  function scrollCards(dir) {
+    scroll.scrollBy({ left: dir * 340, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
